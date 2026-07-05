@@ -1,7 +1,7 @@
 #include <iostream>
 
 /*
-*   Project: Jovian Orrery
+*   Project: Jovian System
 *
 *   Author: Sean Maloney (Astrosaur Projects)
 *

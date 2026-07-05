@@ -1,9 +1,9 @@
-add_executable(JovianOrrery)
+add_executable(JovianSystem)
 
-target_sources(JovianOrrery PRIVATE
+target_sources(JovianSystem PRIVATE
 	main.cpp
 )
 
-target_include_directories(JovianOrrery PRIVATE
+target_include_directories(JovianSystem PRIVATE
 	${CMAKE_CURRENT_SOURCE_DIR}
 )
