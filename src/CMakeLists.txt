@@ -7,3 +7,7 @@ target_sources(JovianSystem PRIVATE
 target_include_directories(JovianSystem PRIVATE
 	${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+target_link_libraries(JovianSystem PRIVATE
+	CLI11::CLI11
+)
