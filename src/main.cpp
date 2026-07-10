@@ -37,6 +37,15 @@ Version 0.0.1
 
     app.add_flag("--json", json_flag, "Output results as machine-readable JSON");
 
+    app.require_subcommand(1);
+
+    CLI::App* jupiter = app.add_subcommand("jupiter", "View the Jovian system");
+
+    std::string date_option = "now";
+
+    jupiter->add_option("-d, --date", date_option, "Computation time in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ)")
+        ->default_val(date_option);
+
     CLI11_PARSE(app, argc, argv);
 
     return 0;
