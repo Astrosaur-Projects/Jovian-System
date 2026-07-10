@@ -39,7 +39,7 @@ Version 0.0.1
 
     app.require_subcommand(1);
 
-    CLI::App* jupiter = app.add_subcommand("jupiter", "View the Jovian system");
+    CLI::App* jupiter = app.add_subcommand("jupiter", "Target the Jovian system");
 
     std::string date_option = "now";
 
