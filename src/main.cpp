@@ -27,13 +27,15 @@ Planetary Ephemerides Viewer
 Version 0.0.1
     )";
 
-    CLI::App app { app_description };
-
-    app.name(app_name);
+    CLI::App app { app_description, app_name };
 
     auto app_formatter = app.get_formatter();
 
     app_formatter->enable_description_formatting(false);
+
+    bool json_flag = false;
+
+    app.add_flag("--json", json_flag, "Output results as machine-readable JSON");
 
     CLI11_PARSE(app, argc, argv);
 
