@@ -1,5 +1,6 @@
+#include "JovianApp/JovianCommands/JovianRender/JovianRender.h"
+#include "JovianCore/JovianSchema/JovianRegistry/JovianRegistry.h"
 #include <CLI/App.hpp>
-#include <JovianCore/JovianSchema/JovianRegistry/JovianRegistry.h>
 #include <memory>
 #include <string>
 
@@ -36,7 +37,9 @@ Version 0.0.1
 	app_formatter->enable_description_formatting(false);
 
 	std::unique_ptr<JovianRegistry> command_registry = std::make_unique<JovianRegistry>();
-	
+
+	command_registry->AddCommand(std::make_unique<JovianRender>());
+
 	command_registry->Register(app);
 
 	CLI11_PARSE(app, argc, argv);
