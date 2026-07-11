@@ -1,7 +1,9 @@
+add_subdirectory(JovianCore)
+
 add_executable(JovianSystem)
 
 target_sources(JovianSystem PRIVATE
-	main.cpp
+	Jovian.cpp
 )
 
 target_include_directories(JovianSystem PRIVATE
@@ -9,5 +11,6 @@ target_include_directories(JovianSystem PRIVATE
 )
 
 target_link_libraries(JovianSystem PRIVATE
+	JovianCore
 	CLI11::CLI11
 )
