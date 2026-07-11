@@ -9,7 +9,7 @@ void JovianRender::Initialize(CLI::App& app)
 {
 	CLI::App* render_command = app.add_subcommand(
 		"render",
-		"Generates a visualization of a planetary system at a discrete observation epoch"
+		"Generates a visualization of a planetary system at a discrete moment in time"
 	);
 
 	std::string target_planet;
@@ -17,6 +17,6 @@ void JovianRender::Initialize(CLI::App& app)
 	render_command->add_option("planet", target_planet, "Selects the planetary system")
 		->required();
 
-	render_command->add_option("-d, --date", render_date, "Sets the observation epoch by an ISO 8601 formatted string; Defaults to now")
+	render_command->add_option("-d, --date", render_date, "Sets the observation epoch. Accepts an ISO 8601 formatted string; Defaults to now")
 		->expected(1);
 }
