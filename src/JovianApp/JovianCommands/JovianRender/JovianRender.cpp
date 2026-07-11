@@ -1,6 +1,5 @@
 #include "JovianApp/JovianCommands/JovianRender/JovianRender.h"
 #include <CLI/App.hpp>
-#include <string>
 
 JovianRender::JovianRender()
 {}
@@ -11,8 +10,6 @@ void JovianRender::Initialize(CLI::App& app)
 		"render",
 		"Generates a visualization of a planetary system at a discrete moment in time"
 	);
-
-	std::string target_planet;
 
 	render_command->add_option("planet", target_planet, "Selects the planetary system")
 		->required();
