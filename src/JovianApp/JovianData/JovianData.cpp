@@ -8,10 +8,10 @@ void JovianData::Initialize(CLI::App& app)
 {
 	CLI::App* show_command = app.add_subcommand(
 		"info",
-		"Returns the target's orbital and physical ephemeris data"
+		"Returns a planetary body's ephemeris data"
 	);
 
-	show_command->add_option("target", target, "Selects the planetary system")
+	show_command->add_option("target", target, "Selects the planetary body")
 		->required();
 
 	show_command->add_option("-d, --date", observation_date, "Sets the observation epoch. Accepts an ISO 8601 formatted string")
