@@ -1,7 +1,7 @@
 #ifndef JOVIAN_REGISTRY_H
 #define JOVIAN_REGISTRY_H
 
-#include "JovianCore/JovianSchema/JovianCommandInterface.h"
+#include "JovianCore/JovianCommandInterface.h"
 #include <CLI/App.hpp>
 #include <memory>
 #include <vector>

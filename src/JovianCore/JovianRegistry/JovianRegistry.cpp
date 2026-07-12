@@ -1,5 +1,5 @@
-#include "JovianCore/JovianSchema/JovianCommandInterface.h"
-#include "JovianCore/JovianSchema/JovianRegistry/JovianRegistry.h"
+#include "JovianCore/JovianCommandInterface.h"
+#include "JovianCore/JovianRegistry/JovianRegistry.h"
 #include <CLI/App.hpp>
 #include <memory>
 #include <utility>

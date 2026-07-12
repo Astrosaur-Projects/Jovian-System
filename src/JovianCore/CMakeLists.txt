@@ -1,8 +1,8 @@
 add_library(JovianCore STATIC)
 
 target_sources(JovianCore PRIVATE
-	JovianSchema/JovianRegistry/JovianRegistry.cpp
-	JovianSchema/JovianCommandInterface.h
+	JovianRegistry/JovianRegistry.cpp
+	JovianCommandInterface.h
 )
 
 target_include_directories(JovianCore PUBLIC

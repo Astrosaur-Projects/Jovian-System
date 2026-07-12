@@ -1,7 +1,7 @@
 #ifndef JOVIAN_SHOW_COMMAND_H
 #define JOVIAN_SHOW_COMMAND_H
 
-#include "JovianCore/JovianSchema/JovianCommandInterface.h"
+#include "JovianCore/JovianCommandInterface.h"
 #include <CLI/App.hpp>
 #include <string>
 #include <vector>
