@@ -13,7 +13,7 @@ public:
 	void Initialize(CLI::App& app);
 
 private:
-	std::string target_planet;
+	std::string render_planet;
 	std::string render_date;
 };
 
