@@ -17,11 +17,7 @@ void JovianShow::Initialize(CLI::App& app)
 	show_command->add_option("-d, --date", show_date, "Sets the observation epoch. Accepts an ISO 8601 formatted string")
 		->expected(1);
 
-	show_command->add_option("-s, --satellites", show_satellites, "Filters planetary satellites")
-		->delimiter(',')
-		->expected(1);
-
-	show_command->add_option("-f, --features", show_features, "Filters planetary features")
+	show_command->add_option("-s, --satellites", show_satellites, "Filters planetary satellites (E.g., Callisto, Ganymede)")
 		->delimiter(',')
 		->expected(1);
 }

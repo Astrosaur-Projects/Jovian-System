@@ -17,7 +17,6 @@ private:
 	std::string show_date;
 	std::string show_planet;
 	std::vector<std::string> show_satellites;
-	std::vector<std::string> show_features;
 };
 
 #endif
