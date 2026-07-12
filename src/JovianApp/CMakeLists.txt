@@ -1,8 +1,8 @@
 add_library(JovianApp STATIC)
 
 target_sources(JovianApp PRIVATE
-	JovianRender/JovianRender.cpp
-	JovianShow/JovianShow.cpp
+	JovianView/JovianView.cpp
+	JovianData/JovianData.cpp
 )
 
 target_include_directories(JovianApp PUBLIC

@@ -4,19 +4,17 @@
 #include "JovianCore/JovianCommandInterface.h"
 #include <CLI/App.hpp>
 #include <string>
-#include <vector>
 
-class JovianShow : public JovianCommandInterface
+class JovianData : public JovianCommandInterface
 {
 public:
-	JovianShow();
+	JovianData();
 
 	void Initialize(CLI::App& app);
 
 private:
-	std::string show_date;
-	std::string show_planet;
-	std::vector<std::string> show_satellites;
+	std::string target; /* E.g., Jupiter, Io, Ganymede, Titan, etc... */
+	std::string observation_date;
 };
 
 #endif

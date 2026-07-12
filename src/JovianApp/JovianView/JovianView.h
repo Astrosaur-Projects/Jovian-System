@@ -5,16 +5,16 @@
 #include <CLI/App.hpp>
 #include <string>
 
-class JovianRender : public JovianCommandInterface
+class JovianView : public JovianCommandInterface
 {
 public:
-	JovianRender();
+	JovianView();
 
 	void Initialize(CLI::App& app);
 
 private:
-	std::string render_planet;
-	std::string render_date;
+	std::string planet;
+	std::string observation_date;
 };
 
 #endif
