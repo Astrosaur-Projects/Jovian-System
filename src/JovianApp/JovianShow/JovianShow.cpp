@@ -1,4 +1,4 @@
-#include "JovianApp/JovianCommands/JovianShow/JovianShow.h"
+#include "JovianApp/JovianShow/JovianShow.h"
 #include <CLI/App.hpp>
 
 JovianShow::JovianShow()

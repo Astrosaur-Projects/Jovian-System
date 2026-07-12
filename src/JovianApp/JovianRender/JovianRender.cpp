@@ -1,4 +1,4 @@
-#include "JovianApp/JovianCommands/JovianRender/JovianRender.h"
+#include "JovianApp/JovianRender/JovianRender.h"
 #include <CLI/App.hpp>
 
 JovianRender::JovianRender()

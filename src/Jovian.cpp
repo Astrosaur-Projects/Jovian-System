@@ -1,5 +1,5 @@
-#include "JovianApp/JovianCommands/JovianRender/JovianRender.h"
-#include "JovianApp/JovianCommands/JovianShow/JovianShow.h"
+#include "JovianApp/JovianRender/JovianRender.h"
+#include "JovianApp/JovianShow/JovianShow.h"
 #include "JovianCore/JovianRegistry/JovianRegistry.h"
 #include <CLI/App.hpp>
 #include <memory>
