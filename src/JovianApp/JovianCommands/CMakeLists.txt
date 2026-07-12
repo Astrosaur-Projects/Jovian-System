@@ -2,6 +2,7 @@ add_library(JovianCommands OBJECT)
 
 target_sources(JovianCommands PRIVATE
 	JovianRender/JovianRender.cpp
+	JovianShow/JovianShow.cpp
 )
 
 target_include_directories(JovianCommands PUBLIC

@@ -1,4 +1,5 @@
 #include "JovianApp/JovianCommands/JovianRender/JovianRender.h"
+#include "JovianApp/JovianCommands/JovianShow/JovianShow.h"
 #include "JovianCore/JovianSchema/JovianRegistry/JovianRegistry.h"
 #include <CLI/App.hpp>
 #include <memory>
@@ -39,6 +40,7 @@ Version 0.0.1
 	std::unique_ptr<JovianRegistry> command_registry = std::make_unique<JovianRegistry>();
 
 	command_registry->AddCommand(std::make_unique<JovianRender>());
+	command_registry->AddCommand(std::make_unique<JovianShow>());
 
 	command_registry->Register(app);
 
