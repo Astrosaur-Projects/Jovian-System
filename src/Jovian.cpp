@@ -1,4 +1,5 @@
 #include "JovianApp/JovianData/JovianData.h"
+#include "JovianApp/JovianFind/JovianFind.h"
 #include "JovianApp/JovianView/JovianView.h"
 #include "JovianCore/JovianRegistry/JovianRegistry.h"
 #include <CLI/App.hpp>
@@ -41,6 +42,7 @@ Version 0.0.1
 
 	command_registry->AddCommand(std::make_unique<JovianView>());
 	command_registry->AddCommand(std::make_unique<JovianData>());
+	command_registry->AddCommand(std::make_unique<JovianFind>());
 
 	command_registry->Register(app);
 
