@@ -12,7 +12,6 @@ public:
 	JovianRegistry();
 
 	void AddCommand(std::unique_ptr<JovianCommandInterface> command);
-
 	void Register(CLI::App& app);
 
 private:
