@@ -6,14 +6,14 @@ JovianView::JovianView()
 
 void JovianView::Initialize(CLI::App& app)
 {
-	CLI::App* render_command = app.add_subcommand(
+	CLI::App* view_command = app.add_subcommand(
 		"view",
 		"Generates a visualization of a planetary system"
 	);
 
-	render_command->add_option("planet", planet, "Selects the planetary system")
+	view_command->add_option("planet", planet, "Selects the planetary system")
 		->required();
 
-	render_command->add_option("-d, --date", observation_date, "Sets the observation epoch. Accepts an ISO 8601 formatted string")
+	view_command->add_option("-d, --date", observation_date, "Sets the observation epoch. Accepts an ISO 8601 formatted string")
 		->expected(1);
 }
