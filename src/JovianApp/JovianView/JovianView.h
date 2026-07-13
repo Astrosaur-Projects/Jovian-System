@@ -1,5 +1,5 @@
-#ifndef JOVIAN_RENDER_COMMAND_H
-#define JOVIAN_RENDER_COMMAND_H
+#ifndef JOVIAN_VIEW_COMMAND_H
+#define JOVIAN_VIEW_COMMAND_H
 
 #include "JovianCore/JovianCommandInterface.h"
 #include <CLI/App.hpp>
