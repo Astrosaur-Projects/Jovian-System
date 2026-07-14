@@ -1,6 +1,7 @@
 add_library(JovianCore STATIC)
 
 target_sources(JovianCore PRIVATE
+	JovianEphemerides/JovianEphemerides.cpp
 	JovianRegistry/JovianRegistry.cpp
 	JovianCommandInterface.h
 )
