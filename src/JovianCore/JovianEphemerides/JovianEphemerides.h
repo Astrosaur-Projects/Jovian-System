@@ -9,7 +9,7 @@ public:
 	JovianEphemerides();
 	
 	double JulianDayNumber(std::string date);
-	void Jupiter();
+	void Jupiter(double jde);
 };
 
 #endif
