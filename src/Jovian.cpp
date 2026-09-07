@@ -37,6 +37,8 @@ Version 0.0.1
 	auto app_formatter = app.get_formatter();
 
 	app_formatter->enable_description_formatting(false);
+	app_formatter->column_width(45);
+	app_formatter->right_column_width(75);
 
 	std::unique_ptr<JovianRegistry> command_registry = std::make_unique<JovianRegistry>();
 

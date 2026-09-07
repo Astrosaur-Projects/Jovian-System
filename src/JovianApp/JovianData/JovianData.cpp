@@ -33,7 +33,7 @@ void JovianData::Initialize(CLI::App& app)
 		input = std::to_string(julian_day);
 
 		return "";
-	}, "Converts an ISO 8601 formatted date to its Julian Day Number", "to_julian_day_number");
+	}, "ISO 8601 DATE (YYYY-MM-DDTHH:MM:SSZ)", "UTC_DATE");
 
 	CLI::App* info_command = app.add_subcommand(
 		"info",
@@ -43,7 +43,7 @@ void JovianData::Initialize(CLI::App& app)
 	info_command->add_option("target", target, "Selects the planetary body")
 		->required();
 
-	info_command->add_option("-d, --date", observation_date, "Sets the observation epoch. Accepts an ISO 8601 formatted string")
+	info_command->add_option("-d, --date", observation_date, "Sets the observation epoch")
 		->expected(1)
 		->transform(to_julian_day_number);
 

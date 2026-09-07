@@ -14,6 +14,6 @@ void JovianView::Initialize(CLI::App& app)
 	view_command->add_option("planet", planet, "Selects the planetary system")
 		->required();
 
-	view_command->add_option("-d, --date", observation_date, "Sets the observation epoch. Accepts an ISO 8601 formatted string")
+	view_command->add_option("-d, --date", observation_date, "Sets the observation epoch")
 		->expected(1);
 }

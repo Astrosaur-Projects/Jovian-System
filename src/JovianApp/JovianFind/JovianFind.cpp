@@ -14,6 +14,6 @@ void JovianFind::Initialize(CLI::App& app)
 	find_command->add_option("target", target, "Selects the planetary body")
 		->required();
 
-	find_command->add_option("-d, --date-range", observation_range, "Sets the observation epoch range. Accepts two ISO 8601 formatted strings")
+	find_command->add_option("-d, --date-range", observation_range, "Sets the observation epoch range")
 		->expected(1);
 }
