@@ -1,12 +1,39 @@
 #include "JovianApp/JovianData/JovianData.h"
-#include "JovianCore/JovianEphemerides/JovianEphemerides.h"
+#include "JovianCore/JovianEphemerides/JovianJupiter/JovianJupiter.h"
 #include <CLI/App.hpp>
+#include <CLI/Validators.hpp>
+#include <cstdio>
+#include <cstdlib>
+#include <memory>
+#include <string>
+#include <tuple>
 
 JovianData::JovianData()
 {}
 
 void JovianData::Initialize(CLI::App& app)
 {
+	auto ToJulianDayNumber = CLI::Validator(
+		[](std::string& input) {
+		int year, month, day, hour, minute, second;
+
+		std::ignore = std::sscanf(input.c_str(), "%d-%d-%dT%d:%d:%dZ", &year, &month, &day, &hour, &minute, &second);
+
+		double time = (((hour * 60.0 * 60.0) + (minute * 60.0) + second) / 86400);
+
+		if (month <= 2) {
+			year = year - 1;
+			month = month + 12;
+		}
+
+		int a = year / 100;
+		int b = 2 - a + (int)(a / 4);
+
+		double julian_day = (int)(365.25 * (year + 4716)) + (int)(30.6001 * (month + 1)) + day + time + b - 1524.5;
+
+		return std::to_string(julian_day);
+	}, "Converts an ISO 8601 formatted date to its Julian Day Number", "ToJulianDayNumber");
+
 	CLI::App* info_command = app.add_subcommand(
 		"info",
 		"Returns a planetary body's ephemeris data"
@@ -16,10 +43,14 @@ void JovianData::Initialize(CLI::App& app)
 		->required();
 
 	info_command->add_option("-d, --date", observation_date, "Sets the observation epoch. Accepts an ISO 8601 formatted string")
-		->expected(1);
+		->expected(1)
+		->transform(ToJulianDayNumber);
 
 	info_command->callback([&]() {
-		auto ephemerides = std::make_unique<JovianEphemerides>();
-		if (target == "jupiter") { ephemerides->Jupiter(ephemerides->JulianDayNumber(observation_date)); }
+		double jde = strtod(observation_date.c_str(), nullptr);
+
+		if (target == "jupiter") {
+			auto ephemerides = std::make_unique<JovianJupiter>(jde);
+		}
 	});
 }
