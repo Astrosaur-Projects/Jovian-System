@@ -22,35 +22,35 @@ void JovianJupiter::Planet()
 	R = 1.00014 - (0.01671 * std::cos(M * degrees_to_radians)) - (0.00014 * std::cos(2 * M * degrees_to_radians));
 	r = 5.20872 - (0.25208 * std::cos(N * degrees_to_radians)) - (0.00611 * std::cos(2 * N * degrees_to_radians));
 	delta = std::sqrt((r * r) + (R * R) - (2 * R * r * std::cos(K * degrees_to_radians)));
-	psi = std::asin((R / delta) * std::sin(K * degrees_to_radians));
+	psi = std::asin((R / delta) * std::sin(K * degrees_to_radians)) / degrees_to_radians;
 
 	lambda = 34.35 + (0.083091 * d) + (0.329 * std::sin((V) * degrees_to_radians)) + B;
 	Ds = 3.12 * std::sin((lambda + 42.8) * degrees_to_radians);
-	De = Ds - (2.22 * std::sin(psi) * std::cos((lambda + 22.0) * degrees_to_radians)) - (1.30 * ((r - delta) / delta) * std::sin((lambda - 100.5) * degrees_to_radians));
+	De = Ds - (2.22 * std::sin(psi * degrees_to_radians) * std::cos((lambda + 22.0) * degrees_to_radians)) - (1.30 * ((r - delta) / delta) * std::sin((lambda - 100.5) * degrees_to_radians));
 }
 
 void JovianJupiter::Satellites()
 {
 	u1 = std::fmod(163.8069 + (203.4058646 * (d - (delta / 173))) + psi - B, 360.0);
-	u2 = std::fmod(385.4140 + (101.2916335 * (d - (delta / 173))) + psi - B, 360.0);
+	u2 = std::fmod(358.4140 + (101.2916335 * (d - (delta / 173))) + psi - B, 360.0);
 	u3 = std::fmod(5.7176 + (50.2345180 * (d - (delta / 173))) + psi - B, 360.0);
 	u4 = std::fmod(224.8092 + (21.4879800 * (d - (delta / 173))) + psi - B, 360.0);
 
-	G = 331.18 + (50.310482 * (d - (delta) / 173));
-	H = 87.45 + (21.569231 * (d - (delta) / 173));
-
-	u1 = u1 + 0.473 * std::sin(2 * (u1 - u2) * degrees_to_radians);
-	u2 = u2 + 1.065 * std::sin(2 * (u2 - u3) * degrees_to_radians);
-	u3 = u3 + 0.165 * std::sin(G * degrees_to_radians);
-	u4 = u4 + 0.843 * std::sin(H * degrees_to_radians);
+	G = std::fmod(331.18 + (50.310482 * (d - (delta) / 173)), 360.0);
+	H = std::fmod(87.45 + (21.569231 * (d - (delta) / 173)), 360.0);
 
 	r1 = 5.9057 - (0.0244 * std::cos(2 * (u1 - u2) * degrees_to_radians));
 	r2 = 9.3966 - (0.0882 * std::cos(2 * (u2 - u3) * degrees_to_radians));
 	r3 = 14.9883 - (0.0216 * std::cos(G * degrees_to_radians));
 	r4 = 26.3627 - (0.1939 * std::cos(H * degrees_to_radians));
 
+	u1 = u1 + 0.473 * std::sin(2 * (u1 - u2) * degrees_to_radians);
+	u2 = u2 + 1.065 * std::sin(2 * (u2 - u3) * degrees_to_radians);
+	u3 = u3 + 0.165 * std::sin(G * degrees_to_radians);
+	u4 = u4 + 0.843 * std::sin(H * degrees_to_radians);
+
 	auto to_x = [&](double r, double u) { return r * std::sin(u * degrees_to_radians); };
-	auto to_y = [&](double r, double u) { return (-1 * r) * std::cos(u * degrees_to_radians) * std::sin(De); };
+	auto to_y = [&](double r, double u) { return (-1 * r) * std::cos(u * degrees_to_radians) * std::sin(De * degrees_to_radians); };
 
 	x1 = to_x(r1, u1); y1 = to_y(r1, u1);
 	x2 = to_x(r2, u2); y2 = to_y(r2, u2);
