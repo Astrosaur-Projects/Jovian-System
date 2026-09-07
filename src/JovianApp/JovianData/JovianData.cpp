@@ -13,7 +13,7 @@ JovianData::JovianData()
 
 void JovianData::Initialize(CLI::App& app)
 {
-	auto ToJulianDayNumber = CLI::Validator(
+	auto to_julian_day_number = CLI::Validator(
 		[](std::string& input) {
 		int year, month, day, hour, minute, second;
 
@@ -30,9 +30,10 @@ void JovianData::Initialize(CLI::App& app)
 		int b = 2 - a + (int)(a / 4);
 
 		double julian_day = (int)(365.25 * (year + 4716)) + (int)(30.6001 * (month + 1)) + day + time + b - 1524.5;
+		input = std::to_string(julian_day);
 
-		return std::to_string(julian_day);
-	}, "Converts an ISO 8601 formatted date to its Julian Day Number", "ToJulianDayNumber");
+		return "";
+	}, "Converts an ISO 8601 formatted date to its Julian Day Number", "to_julian_day_number");
 
 	CLI::App* info_command = app.add_subcommand(
 		"info",
@@ -44,13 +45,13 @@ void JovianData::Initialize(CLI::App& app)
 
 	info_command->add_option("-d, --date", observation_date, "Sets the observation epoch. Accepts an ISO 8601 formatted string")
 		->expected(1)
-		->transform(ToJulianDayNumber);
+		->transform(to_julian_day_number);
 
 	info_command->callback([&]() {
 		double jde = strtod(observation_date.c_str(), nullptr);
 
 		if (target == "jupiter") {
-			auto ephemerides = std::make_unique<JovianJupiter>(jde);
+			auto ephemeris = std::make_unique<JovianJupiter>(jde);
 		}
 	});
 }
