@@ -1,6 +1,7 @@
 #ifndef JOVAIN_JUPITER_H
 #define JOVAIN_JUPITER_H
 
+#include "JovianCore/JovianEphemerides/JovianObjects.h"
 #include <numbers>
 
 class JovianJupiter
@@ -21,6 +22,12 @@ private:
 	double x2, y2;
 	double x3, y3;
 	double x4, y4;
+
+	JovianObjects::PlanetState planet;
+	JovianObjects::SatelliteState io;
+	JovianObjects::SatelliteState europa;
+	JovianObjects::SatelliteState ganymede;
+	JovianObjects::SatelliteState callisto;
 };
 
 #endif

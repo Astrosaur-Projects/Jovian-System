@@ -5,6 +5,12 @@ JovianJupiter::JovianJupiter(double julian_day) : julian_day(julian_day)
 {
 	JovianJupiter::Planet();
 	JovianJupiter::Satellites();
+
+	planet = { delta, r, De, Ds, psi };
+	io = { x1, y1, r1, u1 };
+	europa = { x2, y2, r2, u2 };
+	ganymede = { x3, y3, r3, u3 };
+	callisto = { x4, y4, r4, u4 };
 }
 
 void JovianJupiter::Planet()
