@@ -24,10 +24,10 @@ void JovianData::Initialize(CLI::App& app)
 		->transform(JovianOptionValidators::JovianDateValidator);
 
 	info_command->callback([&]() {
-		double jde = strtod(observation_date.c_str(), nullptr);
+		double julian_day = strtod(observation_date.c_str(), nullptr);
 
 		if (target == "jupiter") {
-			auto ephemeris = std::make_unique<JovianJupiter>(jde);
+			auto ephemeris = std::make_unique<JovianJupiter>(julian_day);
 		}
 	});
 }
