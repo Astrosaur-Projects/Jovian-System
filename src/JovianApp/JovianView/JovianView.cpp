@@ -1,3 +1,4 @@
+#include "JovianApp/JovianOptionValidators.h"
 #include "JovianApp/JovianView/JovianView.h"
 #include <CLI/App.hpp>
 
@@ -15,5 +16,6 @@ void JovianView::Initialize(CLI::App& app)
 		->required();
 
 	view_command->add_option("-d, --date", observation_date, "Sets the observation epoch")
-		->expected(1);
+		->expected(1)
+		->transform(JovianOptionValidators::JovianDateValidator);
 }
