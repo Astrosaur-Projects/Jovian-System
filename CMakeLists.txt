@@ -11,5 +11,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(CLI11 CONFIG REQUIRED)
+find_package(Matplot++ CONFIG REQUIRED)
 
 add_subdirectory(src)

@@ -15,4 +15,6 @@ target_link_libraries(JovianSystem PRIVATE
 	JovianCore
 	JovianApp
 	CLI11::CLI11
+	Matplot++::cimg
+	Matplot++::matplot
 )
