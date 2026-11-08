@@ -5,12 +5,6 @@ JovianJupiter::JovianJupiter(double julian_day) : julian_day(julian_day)
 {
 	JovianJupiter::Planet();
 	JovianJupiter::Satellites();
-
-	planet = { delta, r, De, Ds, psi };
-	io = { x1, y1, r1, u1 };
-	europa = { x2, y2, r2, u2 };
-	ganymede = { x3, y3, r3, u3 };
-	callisto = { x4, y4, r4, u4 };
 }
 
 void JovianJupiter::Planet()
@@ -33,6 +27,8 @@ void JovianJupiter::Planet()
 	lambda = 34.35 + (0.083091 * d) + (0.329 * std::sin((V) * degrees_to_radians)) + B;
 	Ds = 3.12 * std::sin((lambda + 42.8) * degrees_to_radians);
 	De = Ds - (2.22 * std::sin(psi * degrees_to_radians) * std::cos((lambda + 22.0) * degrees_to_radians)) - (1.30 * ((r - delta) / delta) * std::sin((lambda - 100.5) * degrees_to_radians));
+
+	planet = { delta, r, De, Ds, psi };
 }
 
 void JovianJupiter::Satellites()
@@ -62,4 +58,9 @@ void JovianJupiter::Satellites()
 	x2 = to_x(r2, u2); y2 = to_y(r2, u2);
 	x3 = to_x(r3, u3); y3 = to_y(r3, u3);
 	x4 = to_x(r4, u4); y4 = to_y(r4, u4);
+
+	io = { x1, y1, r1, u1 };
+	europa = { x2, y2, r2, u2 };
+	ganymede = { x3, y3, r3, u3 };
+	callisto = { x4, y4, r4, u4 };
 }
